@@ -6,7 +6,7 @@ Improve performance of a complex SQL query joining bookings, users, properties, 
 
 ---
 
-## 🔍 Initial Query
+##  Initial Query
 
 The original query retrieves booking details and joins:
 
@@ -17,7 +17,7 @@ The original query retrieves booking details and joins:
 
 ---
 
-## ⚙️ Performance Analysis
+##  Performance Analysis
 
 We used `EXPLAIN ANALYZE` to evaluate performance.
 
@@ -27,7 +27,7 @@ Identified issues:
 
 ---
 
-## 🚀 Optimized Query Strategy
+##  Optimized Query Strategy
 
 - Indexed: `bookings.user_id`, `bookings.property_id`, `bookings.payment_id`
 - Selected only required columns to reduce data transfer
@@ -35,7 +35,7 @@ Identified issues:
 
 ---
 
-## ✅ Result
+##  Result
 
 Reduced query complexity and execution time, especially with large datasets.
 
