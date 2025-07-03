@@ -9,4 +9,10 @@ CREATE INDEX idx_properties_owner_id ON properties(owner_id);
 
 -- Index on users.email to speed up lookups by email
 CREATE INDEX idx_users_email ON users(email);
+-- Measure query performance BEFORE indexing (run this before indexes exist)
+EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 123;
+
+-- Measure query performance AFTER indexing (run this after indexes exist)
+EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 123;
+
 
