@@ -28,19 +28,31 @@ CREATE INDEX idx_bookings_property_id ON bookings(property_id);
 CREATE INDEX idx_properties_owner_id ON properties(owner_id);
 CREATE INDEX idx_users_email ON users(email);
 
----
-## 🧪 Query Performance Example
+ Query Performance Example
+Before indexing
 
-### Before indexing
-
-```sql
 EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 123;
----
+
 Before indexing, the database performs a sequential scan, checking every row in the bookings table to find matches. This is inefficient on large tables.
 After indexing
----
+
 CREATE INDEX idx_bookings_user_id ON bookings(user_id);
 
 EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 123;
----
+
 After adding the index, the database performs an index scan, which is much faster because it jumps directly to the matching rows using the index.
+✅ Why These Columns Were Chosen
+
+Since no real data was available, indexing decisions were based on:
+
+    Foreign keys commonly used in JOINs (user_id, property_id, owner_id)
+
+    Lookup fields like email, often used in filters or login queries
+
+This ensures the database is optimized for the most likely access patterns.
+✅ Conclusion
+
+Indexes improve query speed by reducing how much data the database has to search through.
+
+Even without actual data, we applied best practices based on schema design to improve performance and scalability using appropriate indexing.
+
