@@ -1,6 +1,6 @@
 # 🛠️ Query Optimization Report
 
-## 🎯 Objective
+##  Objective
 
 Improve performance of a complex SQL query joining bookings, users, properties, and payments.
 
@@ -41,7 +41,7 @@ Reduced query complexity and execution time, especially with large datasets.
 
 ---
 
-## 📁 Files Submitted
+##  Files Submitted
 
 - `perfomance.sql`: SQL queries (initial, analysis, and optimized)
 - `optimization_report.md`: This explanation report
