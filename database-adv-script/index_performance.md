@@ -29,20 +29,18 @@ CREATE INDEX idx_properties_owner_id ON properties(owner_id);
 CREATE INDEX idx_users_email ON users(email);
 
 ---
-
 ## 🧪 Query Performance Example
 
 ### Before indexing
 
 ```sql
 EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 123;
-
+---
 Before indexing, the database performs a sequential scan, checking every row in the bookings table to find matches. This is inefficient on large tables.
-
 After indexing
+---
 CREATE INDEX idx_bookings_user_id ON bookings(user_id);
 
 EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 123;
+---
 After adding the index, the database performs an index scan, which is much faster because it jumps directly to the matching rows using the index.
-
-
