@@ -46,11 +46,3 @@ EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 123;
 After adding the index, the database performs an index scan, which is much faster because it jumps directly to the matching rows using the index.
 
 
----
-
-### ❗ Why this matters
-
-- When you use triple backticks like ```` ```sql ````, that means **“only code goes here.”**
-- Explanations must go **outside** the code blocks.
-
----
