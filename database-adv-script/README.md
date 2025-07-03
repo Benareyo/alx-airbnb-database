@@ -12,3 +12,7 @@ The purpose of these queries is to demonstrate how to retrieve data from multipl
 SELECT bookings.id AS booking_id, users.name AS user_name
 FROM bookings
 INNER JOIN users ON bookings.user_id = users.id;
+
+**Explanation:**  
+This query retrieves a list of bookings **along with the name of the user** who made each booking.  
+It will only show bookings that are **linked to a valid user** — if a booking has no user, it won't appear.
