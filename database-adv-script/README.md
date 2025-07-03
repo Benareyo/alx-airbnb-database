@@ -1,16 +1,14 @@
-# JOIN Queries Explanation
+# Advanced SQL Queries – JOINs
 
-This file contains three SQL queries demonstrating the use of different types of JOINs in a relational database.
+This README documents the SQL JOIN queries written for the **ALX Airbnb Database Project**, specifically in the `database-adv-script` directory.
+
+The purpose of these queries is to demonstrate how to retrieve data from multiple related tables using various SQL JOIN techniques.
 
 ---
 
-### 1. INNER JOIN - Bookings with their Users
+## 1️⃣ INNER JOIN – Bookings with User Info
 
 ```sql
 SELECT bookings.id AS booking_id, users.name AS user_name
 FROM bookings
 INNER JOIN users ON bookings.user_id = users.id;
-
-SELECT properties.id AS property_id, properties.name AS property_name, reviews.rating
-FROM properties
-LEFT JOIN reviews ON properties.id = reviews.property_id;
