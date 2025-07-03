@@ -4,14 +4,9 @@ FROM bookings
 GROUP BY user_id;
 
 -- 2. Rank properties by total number of bookings using a window function
-WITH property_bookings AS (
-    SELECT property_id, COUNT(*) AS total_bookings
-    FROM bookings
-    GROUP BY property_id
-)
-
-SELECT 
+SELECT
     property_id,
-    total_bookings,
-    RANK() OVER (ORDER BY total_bookings DESC) AS booking_rank
-FROM property_bookings;
+    COUNT(*) AS total_bookings,
+    RANK() OVER (ORDER BY COUNT(*) DESC) AS booking_rank
+FROM bookings
+GROUP BY property_id;
