@@ -10,7 +10,9 @@ SELECT
 FROM bookings
 JOIN users ON bookings.user_id = users.id
 JOIN properties ON bookings.property_id = properties.id
-JOIN payments ON bookings.payment_id = payments.id;
+JOIN payments ON bookings.payment_id = payments.id
+WHERE bookings.created_at >= '2024-01-01'
+AND payments.status = 'completed';
 
 -- 🔍 Analyze performance
 EXPLAIN ANALYZE
@@ -25,7 +27,9 @@ SELECT
 FROM bookings
 JOIN users ON bookings.user_id = users.id
 JOIN properties ON bookings.property_id = properties.id
-JOIN payments ON bookings.payment_id = payments.id;
+JOIN payments ON bookings.payment_id = payments.id
+WHERE bookings.created_at >= '2024-01-01'
+AND payments.status = 'completed';
 
 -- ✅ Optimized version: Select only essential fields
 SELECT 
@@ -36,5 +40,6 @@ SELECT
 FROM bookings b
 JOIN users u ON b.user_id = u.id
 JOIN properties p ON b.property_id = p.id
-JOIN payments pay ON b.payment_id = pay.id;
-
+JOIN payments pay ON b.payment_id = pay.id
+WHERE b.created_at >= '2024-01-01'
+AND pay.status = 'completed';
